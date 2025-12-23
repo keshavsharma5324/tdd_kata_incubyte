@@ -1,6 +1,6 @@
 
 void main() {
-  print(StringCalculator().add('//;\n1;2'));
+  print(StringCalculator().add('1,-2,3,-4'));
 }
 
 class StringCalculator {
@@ -15,7 +15,14 @@ class StringCalculator {
     }
 
     var nums = numbers.split(RegExp('[$delimiter\n]'));
-    return nums.map((n) => int.parse(n)).reduce((sum, n) => sum + n);
+    var numbersList = nums.map((n) => int.parse(n)).toList();
+
+    var negatives = numbersList.where((n) => n < 0);
+    if (negatives.isNotEmpty) {
+      throw FormatException('Negatives not allowed: ${negatives.join(', ')}');
+    }
+
+    return numbersList.reduce((sum, n) => sum + n);
   }
 }
 
