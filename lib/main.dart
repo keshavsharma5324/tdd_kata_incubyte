@@ -1,6 +1,6 @@
 
 void main() {
-  print(StringCalculator().add('5,6'));
+  print(StringCalculator().add('5,6,3,8,2'));
 }
 
 class StringCalculator {
@@ -8,9 +8,7 @@ class StringCalculator {
     if (numbers.isEmpty) return 0;
 
     var nums = numbers.split(',');
-    if (nums.length == 1) return int.parse(nums[0]);
-
-    return int.parse(nums[0]) + int.parse(nums[1]);
+    return nums.map((n) => int.parse(n)).reduce((sum, n) => sum + n);
   }
 }
 
