@@ -36,4 +36,9 @@ void main() {
       ),
     );
   });
+
+  test('ignores numbers larger than 1000 in complex cases', () {
+    expect(calculator.add('//;\n2;1001;3;2000'), equals(5));
+    expect(calculator.add('1001,1002,999'), equals(999));
+  });
 }

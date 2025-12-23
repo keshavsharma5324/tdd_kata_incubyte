@@ -1,6 +1,6 @@
 
 void main() {
-  print(StringCalculator().add('1,-2,3,-4'));
+  print(StringCalculator().add('//;\n2;1001;3;2000'));
 }
 
 class StringCalculator {
@@ -22,7 +22,7 @@ class StringCalculator {
       throw FormatException('Negatives not allowed: ${negatives.join(', ')}');
     }
 
-    return numbersList.reduce((sum, n) => sum + n);
+    return numbersList.where((n) => n <= 1000).reduce((sum, n) => sum + n);
   }
 }
 
