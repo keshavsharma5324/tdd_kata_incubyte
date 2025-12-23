@@ -41,4 +41,9 @@ void main() {
     expect(calculator.add('//;\n2;1001;3;2000'), equals(5));
     expect(calculator.add('1001,1002,999'), equals(999));
   });
+
+  test('supports delimiters of any length', () {
+    expect(calculator.add('//[***]\n1***2***3'), equals(6));
+    expect(calculator.add('//[....]\n1....2....3'), equals(6));
+  });
 }
