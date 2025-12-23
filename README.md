@@ -18,8 +18,8 @@ A beautiful Flutter implementation of the String Calculator following Test-Drive
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/string-calculator-flutter.git
-   cd string-calculator-flutter
+   git clone https://github.com/keshavsharma5324/tdd_kata_incubyte.git
+   cd tdd_kata_incubyte
    ```
 
 2. **Install dependencies**
