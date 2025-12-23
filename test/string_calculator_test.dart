@@ -51,4 +51,9 @@ void main() {
     expect(calculator.add('//[*][%]\n1*2%3'), equals(6));
     expect(calculator.add('//[!!][??]\n1!!2??3'), equals(6));
   });
+
+  test('supports multiple multi-character delimiters', () {
+    expect(calculator.add('//[***][%%%]\n1***2%%%3'), equals(6));
+    expect(calculator.add('//[!!][???][__]\n1!!2???3__4'), equals(10));
+  });
 }

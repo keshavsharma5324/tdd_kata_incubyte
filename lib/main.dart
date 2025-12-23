@@ -1,6 +1,6 @@
 
 void main() {
-  print(StringCalculator().add('//[***]\n1***2***3'));
+  print(StringCalculator().add('//[***][%%%]\n1***2%%%3'));
 }
 
 class StringCalculator {
@@ -34,13 +34,13 @@ class StringCalculator {
     String pattern = delimiters.map((d) => RegExp.escape(d)).join('|');
     var nums = numbers.split(RegExp('$pattern|\n'));
 
-    var numbersList = nums.map((n) => int.parse(n)).toList();
+    var numbersList = nums.where((n) => n.isNotEmpty).map((n) => int.parse(n)).toList();
 
     var negatives = numbersList.where((n) => n < 0);
     if (negatives.isNotEmpty) {
       throw FormatException('Negatives not allowed: ${negatives.join(', ')}');
     }
 
-    return numbersList.where((n) => n <= 1000).reduce((sum, n) => sum + n);
+    return numbersList.where((n) => n <= 1000).fold(0, (sum, n) => sum + n);
   }
 }
